@@ -42,7 +42,7 @@ defmodule OSC.Parser do
   def parse_blob(<< size :: big-size(32), blob :: binary-size(size), rest :: binary >>) do
     rest = size
     |> size_to_padding()
-    |> +(1)
+    |> Kernel.+(1)
     |> consume(rest)
     {blob, rest}
   end
